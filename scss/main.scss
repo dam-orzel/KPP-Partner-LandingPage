@@ -5,6 +5,7 @@
 
 body {
     font-size: 10px;
+    background: rgb(232, 229, 229);
 }
 
 /////////////////////////////////////////////////////////////
@@ -15,6 +16,8 @@ body {
 
 section.header {
     background: rgb(122, 36, 62);
+    height: 70vh;
+    position: relative;
 }
 
 section.header nav img {
@@ -24,17 +27,12 @@ float: left;
 padding: 1vh;
 }
 
-section.header nav {
-
-
-}
-
 .navigation {
     position: relative;
     &::after {
         position: absolute;
         content: "";
-        border-bottom: 1px solid rgb(182, 182, 182);
+        border-bottom: 1px solid rgba(255,255,255, 0.2);
         top: 0;
         left: 0;
         bottom: 0;
@@ -56,5 +54,120 @@ section.header nav {
             margin-left: 40px;
             font-weight: 400;
             padding: 3vh 0;
+        }
+}
+
+
+/////////////////////////////////////////////////////////////
+///////
+///////                    Header                    ///////
+///////
+/////////////////////////////////////////////////////////////
+
+.main-header h1 {
+    font-weight: 100;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+    text-align: center;
+    margin-top: 60px;
+        span {
+            font-weight: bold;
+            color: rgba(255,255,255,1);
+        }
+}
+
+.main-header .header-content {
+    margin-top: 30px;
+    font-size: 1.6em;
+    color: white;
+    display: block;
+    text-align: center;
+    font-weight: 100;
+        span {
+            font-weight: bold;
+        }
+}
+
+.main-header button {
+    display: block;
+    background: #ff7701;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    margin: 30px auto;
+}
+
+/////////////////////////////////////////////////////////////
+///////
+///////                 Tabela usług                  ///////
+///////
+/////////////////////////////////////////////////////////////
+
+.offer-table {
+    position: absolute;
+    top: 50vh;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.offer-box {
+    background: white;
+    border-radius: 10px;
+        .first-row, .second-row {
+            .row {
+                margin: 0 !important;
+            }
+            .item {
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+                border-left: 1px solid rgba(0,0,0,0.1);
+                padding: 2% 5%;
+                    .fas {
+                        margin-right: 10px;
+                        font-size: 1.3em;
+                        color: rgb(122, 36, 62);
+                    }
+                    span {
+                        font-size: 1.4em;
+                        line-height: 1px;
+                        color: rgba(0,0,0,0.5);
+                    }
+                    h4 {
+                        font-size: 2em;
+                        padding-bottom: 15px;
+                        color: rgb(122, 36, 62);
+                    }
+                    .link {
+                        margin-top: 10px;
+                        position: relative;
+                        display: flex;
+                        justify-content: flex-end;
+                        font-size: 1.3em;
+                        color: #ff7701;
+                            &::after {
+                                margin-top: 22px;
+                                position: absolute;
+                                content: "";
+                                border-bottom: 1px solid #ff7701;
+                                top: 0;
+                                bottom: 0;
+                                right: 10%;
+                                left: 83%;
+                            }
+                            &:hover {
+                                text-decoration: none;
+                            }
+                    }
+            }
+        }
+        .second-row {
+            .item {
+                border-bottom: none;
+                
+            }
+
         }
 }
