@@ -140,33 +140,42 @@ padding: 1vh;
                         padding-bottom: 15px;
                         color: rgb(122, 36, 62);
                     }
-                    .link {
+                    .link-box {
                         margin-top: 10px;
-                        position: relative;
+
                         display: flex;
                         justify-content: flex-end;
                         font-size: 1.3em;
-                        color: #ff7701;
+
+                        .link {
+                            color: #ff7701;
+                            position: relative;
+                            padding-bottom: 3px;
+                            border-bottom: 1px solid #ff7701;
+                            padding-left: 10px;
                             &::after {
                                 margin-top: 22px;
                                 position: absolute;
                                 content: "";
-                                border-bottom: 1px solid #ff7701;
+                                border-bottom: 1px solid white;
                                 top: 0;
                                 bottom: 0;
-                                right: 10%;
-                                left: 83%;
+                                right: 0;
+                                left: 50%;
                             }
                             &:hover {
                                 text-decoration: none;
+
                             }
+                        }
+
                     }
             }
         }
         .second-row {
             .item {
                 border-bottom: none;
-                
+
             }
 
         }
