@@ -6,3 +6,12 @@ $(document).ready(function(){
       arrows: true
     });
 });
+
+$(document).ready(function(){
+    $('.mobile-quote').slick({
+      dots: true,
+      autoplay: true,
+      autoplaySpeed: 800000,
+      arrows: false
+    });
+});
