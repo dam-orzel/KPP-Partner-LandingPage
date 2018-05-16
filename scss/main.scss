@@ -1,3 +1,21 @@
+/////////////////////////////////////////////////////////////
+///////
+///////                 Breakpoints                   ///////
+///////
+/////////////////////////////////////////////////////////////
+@import '../node_modules/breakpoint-sass/stylesheets/_breakpoint.scss';
+$xss: max-width 400px;
+$xs: 401px 575px;
+$sm: 576px 767px;
+$md: 768px 991px;
+$lg: 992px 1199px;
+$xl: min-width 1200px;
+/////////////////////////////////////////////////////////////
+///////
+///////                 Global                        ///////
+///////
+/////////////////////////////////////////////////////////////
+
 * {
     margin : 0;
     padding: 0;
@@ -21,17 +39,34 @@ section.header {
     background-repeat: no-repeat;
     height    : 70vh;
     position  : relative;
+        @include breakpoint($lg) {
+            height: 55vh;
+        }
+        nav {
+            height: 10vh;
+        }
 }
 
 section.header nav img.logo {
-    width  : 15%;
-    height : 15%;
+    height: 100%;
     float  : left;
     padding: 1vh;
+        @include breakpoint($lg) {
+            width: 25%;
+        }
+        @include breakpoint($sm) {
+            float: none;
+            display: block;
+            margin: auto;
+        }
+
 }
 
 section.header nav img.nav-icon {
     padding-right: 10px;
+    @include breakpoint($md){
+        padding-right: 2px;
+    }
 }
 
 .navigation {
@@ -56,13 +91,24 @@ section.header nav img.nav-icon {
     list-style     : none;
     display        : flex;
     justify-content: flex-end;
-
+    align-items: center;
     li {
         display    : inline;
         font-size  : 1.6em;
         margin-left: 40px;
         font-weight: 400;
         padding    : 3vh 0;
+        height: 100%;
+        @include breakpoint($lg) {
+            margin-top: 20px;
+            font-size: 1.3em;
+            margin-left: 20px;
+        }
+        @include breakpoint($md){
+            font-size: 0.85em;
+            margin-left: 15px;
+            margin-top: 10px;
+        }
     }
 }
 /////////////////////////////////////////////////////////////
@@ -114,13 +160,7 @@ section.header nav img.nav-icon {
 ///////
 /////////////////////////////////////////////////////////////
 
-.offer-table {
-    position: absolute;
-    top     : 50vh;
-    bottom  : 0;
-    left    : 0;
-    right   : 0;
-}
+
 
 .offer-box {
     background   : white;
@@ -135,7 +175,7 @@ section.header nav img.nav-icon {
         .item {
             border-bottom: 1px solid rgba(0,0,0,0.1);
             border-left  : 1px solid rgba(0,0,0,0.1);
-            padding      : 2% 5%;
+            padding      : 2% 2%;
 
             .fas {
                 margin-right: 10px;
@@ -197,6 +237,46 @@ section.header nav img.nav-icon {
         }
     }
 }
+
+/////////////////////////////////////////////////////////////
+///////
+///////             Mobilna Taela Usług               ///////
+///////
+/////////////////////////////////////////////////////////////
+
+.mobile-offer {
+    .mobile-version {
+        .item {
+            background: white;
+            margin: 0;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid rgba(0,0,0, 0.2);
+                h2 {
+                    margin: 0;
+                    color: $maincolor;
+                    padding: 25px 0;
+                    font-weight: bold;
+                    font-size: 2.2em;
+                }
+                img {
+                    width: 60px;
+                    padding: 20px 0 0 0;
+                }
+        }
+        .item:first-child {
+            img {
+                width: 50px;
+            }
+        }
+        .item:nth-child(3) {
+            img {
+                width: 70px;
+            }
+        }
+    }
+}
+
 /////////////////////////////////////////////////////////////
 ///////
 ///////                     Slider                    ///////
@@ -207,10 +287,29 @@ section.header nav img.nav-icon {
     text-align: center;
     display   : block;
     margin-top: 40vh;
+    @include breakpoint($lg) {
+        margin-top: 30vh;
+    }
+    @include breakpoint($md) {
+        margin-top: 32vh;
+    }
+    @include breakpoint($sm) {
+        margin-top: 0;
+    }
 
     [class*="-item"] {
         padding: 0 5%;
         position: relative;
+        @include breakpoint($lg) {
+            padding: 0 2%;
+        }
+        @include breakpoint($md) {
+            padding: 0 3%;
+        }
+        @include breakpoint($sm) {
+            margin-top: 15vh;
+            padding: 0 20%;
+        }
         [class*="item-bg"] {
             position: absolute;
             background-image: url("../images/rzetelne.png");
@@ -221,6 +320,10 @@ section.header nav img.nav-icon {
             left: 0;
             height: 100%;
             width: 100%;
+            @include breakpoint($md) {
+                height: 70%;
+                bottom: 75%;
+            }
         }
         .item-bg2 {
             background-image: url("../images/terminowe.png");
@@ -235,6 +338,10 @@ section.header nav img.nav-icon {
             font-size     : 2.5em;
             font-weight   : bold;
             color         : $maincolor;
+            @include breakpoint($md) {
+                font-size: 1.8em;
+                letter-spacing: 2px;
+            }
         }
 
         span {
@@ -242,6 +349,10 @@ section.header nav img.nav-icon {
             color    : rgba(0,0,0,0.4);
         }
     }
+}
+
+.slick-list, .slick-track {
+    height: 100% !important;
 }
 
 .quote-box {
@@ -258,22 +369,58 @@ section.header nav img.nav-icon {
         [class*="-slide"] {
             width  : 100%;
             padding: 20px 60px;
+            display: flex;
+            align-items: center;
+            @include breakpoint($md) {
+                padding: 20px 20px;
+            }
+            @include breakpoint($sm) {
+                padding: 20px 20px;
+            }
+
+            .position-img {
+                display: flex;
+                height: 100%;
+                align-items: center;
+            }
 
             img {
-                height  : 11vh;
+                height  : 100%;
                 position: relative;
+                @include breakpoint($md) {
+                    height: 80%;
+                }
+                @include breakpoint($sm) {
+                    height: 60%;
+                }
             }
 
             .identity {
+
                 position: absolute;
                 top     : 32%;
                 bottom  : 0;
                 right   : 100px;
-                left    : -40px;
+                left    : -6%;
+                @include breakpoint($lg) {
+                    left: 10%;
+                    width: 80%;
+                }
+                @include breakpoint($md) {
+                    left: 15%;
+                    width: 80%;
+                }
+                @include breakpoint($sm) {
+                    left: 15%;
+                    width: 100%;
+                    top: 35%;
+                }
 
                 span {
                     font-size: 1.4em;
-                    float    : left;
+                    @include breakpoint($sm) {
+                        font-size: 1.2em;
+                    }
                 }
 
                 span:last-child {
@@ -287,17 +434,33 @@ section.header nav img.nav-icon {
                 color      : rgba(0,0,0,0.6);
                 font-weight: bold;
                 display    : flex;
-                margin-top : 3%;
+                margin-top : 5%;
+                @include breakpoint($lg) {
+                    margin-top: 6%;
+                    margin-left: 5%;
+                }
+                @include breakpoint($sm) {
+                    font-size: 1em;
+                    margin-top: 10%;
+                    margin-left: 10%;
+                }
             }
 
             .fa-quote-right {
                 opacity  : 0.1;
                 font-size: 8em;
                 position : absolute;
-                top      : 10%;
+                top      : 20%;
                 bottom   : 0;
                 right    : 20%;
                 left     : -9%;
+                @include breakpoint($lg) {
+                    left: -5%;
+                    top: 20%;
+                }
+                @include breakpoint($sm) {
+                    left: 0%;
+                }
             }
         }
     }
@@ -315,6 +478,9 @@ section.callback {
     background-size: cover;
     background-repeat: no-repeat;
     height     : 52vh;
+    @include breakpoint($md) {
+        height: 60vh;
+    }
 
     .header {
         span {
@@ -388,7 +554,7 @@ section.callback {
 
 /////////////////////////////////////////////////////////////
 ///////
-///////                 Comment Title                 ///////
+///////                     Footer                    ///////
 ///////
 /////////////////////////////////////////////////////////////
 section.footer {
@@ -410,15 +576,24 @@ section.footer {
             }
             img {
                 width:60%;
+                @include breakpoint($md) {
+                    width: 80%;
+                }
             }
             .positioning-content {
                 display: flex;
                 flex-direction: column;
                 margin-top:7%;
+                @include breakpoint($md) {
+                    margin-top: 10%;
+                }
             }
             span {
                 color: $maincolor;
                 font-size: 2.4em;
+                @include breakpoint($md) {
+                    font-size: 2em;
+                }
                     .footer-icon1 {
                         max-width: 20px;
                         margin-right: 10px;
