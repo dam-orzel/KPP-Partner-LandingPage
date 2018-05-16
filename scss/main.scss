@@ -6,6 +6,7 @@
 body {
     font-size : 10px;
     background: rgb(232, 229, 229);
+    font-family: "Lato", sans-serif;
 }
 $maincolor: rgb(122, 36, 62); /////////////////////////////////////////////////////////////
 ///////
@@ -14,16 +15,23 @@ $maincolor: rgb(122, 36, 62); //////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
 
 section.header {
-    background: $maincolor;
+    background: url("../images/top_bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     height    : 70vh;
     position  : relative;
 }
 
-section.header nav img {
+section.header nav img.logo {
     width  : 15%;
     height : 15%;
     float  : left;
     padding: 1vh;
+}
+
+section.header nav img.nav-icon {
+    padding-right: 10px;
 }
 
 .navigation {
@@ -66,12 +74,12 @@ section.header nav img {
 .main-header h1 {
     font-weight   : 100;
     text-transform: uppercase;
-    color         : rgba(255,255,255,0.8);
+    color         : rgba(255,255,255,0.6);
     text-align    : center;
     margin-top    : 60px;
 
     span {
-        font-weight: bold;
+
         color      : rgba(255,255,255,1);
     }
 }
@@ -93,12 +101,12 @@ section.header nav img {
     display      : block;
     background   : #ff7701;
     border       : none;
-    padding      : 15px 30px;
+    padding      : 20px 30px;
     border-radius: 50px;
     font-size    : 2em;
     font-weight  : bold;
     color        : white;
-    margin       : 30px auto;
+    margin       : 50px auto;
 }
 /////////////////////////////////////////////////////////////
 ///////
@@ -143,8 +151,12 @@ section.header nav img {
 
             h4 {
                 font-size     : 2em;
+                font-weight: bold;
                 padding-bottom: 15px;
                 color         : $maincolor;
+                    .offer-icon {
+                        padding-right: 15px;
+                    }
             }
 
             .link-box {
@@ -194,16 +206,33 @@ section.header nav img {
 .middle-content {
     text-align: center;
     display   : block;
-    margin-top: 30vh;
+    margin-top: 40vh;
 
     [class*="-item"] {
         padding: 0 5%;
-
+        position: relative;
+        [class*="item-bg"] {
+            position: absolute;
+            background-image: url("../images/rzetelne.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            bottom: 65%;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .item-bg2 {
+            background-image: url("../images/terminowe.png");
+        }
+        .item-bg3 {
+            background-image: url("../images/profesjonalne.png");
+        }
         h3 {
             margin-bottom : 45px;
             text-transform: uppercase;
             letter-spacing: 4px;
-            font-size     : 2em;
+            font-size     : 2.5em;
             font-weight   : bold;
             color         : $maincolor;
         }
@@ -217,7 +246,7 @@ section.header nav img {
 
 .quote-box {
     text-align   : left;
-    margin       : 60px 0;
+    margin       : 8vh 0;
     border-radius: 10px;
     background   : white;
     height       : 15vh;
@@ -280,14 +309,12 @@ section.header nav img {
 /////////////////////////////////////////////////////////////
 
 section.callback {
-    margin-top : -100px;
-    padding-top: 120px;
-    position   : absolute;
-    right      : 0;
-    left       : 0;
-    background : #ff7701;
-    height     : 60vh;
-    z-index    : -1;
+    padding-top: 100px;
+    background : url("../images/orange_bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height     : 52vh;
 
     .header {
         span {
@@ -301,7 +328,7 @@ section.callback {
         }
 
         span:nth-child(2) {
-            font-weight: 500;
+            font-weight: bold;
         }
 
         .centered {
@@ -357,4 +384,65 @@ section.callback {
             margin       : 30px auto;
         }
     }
+}
+
+/////////////////////////////////////////////////////////////
+///////
+///////                 Comment Title                 ///////
+///////
+/////////////////////////////////////////////////////////////
+section.footer {
+    display: flex;
+        .first-row {
+            min-height: 10vh;
+        }
+        .second-row {
+            .item {
+                padding: 20px 10px;
+            }
+        }
+        .item {
+            padding: 30px 30px;
+
+            .positioning-img {
+                display: flex;
+                justify-content: flex-end;
+            }
+            img {
+                width:60%;
+            }
+            .positioning-content {
+                display: flex;
+                flex-direction: column;
+                margin-top:7%;
+            }
+            span {
+                color: $maincolor;
+                font-size: 2.4em;
+                    .footer-icon1 {
+                        max-width: 20px;
+                        margin-right: 10px;
+                        margin-bottom: 15px;
+                    }
+                    .footer-icon2 {
+                        max-width: 30px;
+                        margin-right: 10px;
+                        margin-left: -10px;
+                        margin-bottom: 10px;
+                    }
+            }
+            button {
+                padding: 15px 40px;
+                border-radius: 45px;
+                border: none;
+                background: rgb(164, 165, 180);
+                color: white;
+                font-size: 2em;
+                cursor: pointer;
+                    &:hover {
+                        background: rgb(153, 154, 168);
+                        transition: background 0.5s;
+                    }
+            }
+        }
 }
